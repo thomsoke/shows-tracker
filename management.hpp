@@ -17,6 +17,8 @@ class Management
     Management();
     ~Management();
     void mgmt_menu();
+    void add_new_show();
+    void append_file();
 
   protected:
 

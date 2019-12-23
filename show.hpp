@@ -14,24 +14,19 @@ using namespace std;
 class Show
 {
   public:
+    Show();
+    ~Show();
+
     string get_venue();
-    void set_venue(string v);
     float get_time();
-    void set_time(int t);
     int get_day();
-    void set_day(int d);
     int get_month();
-    void set_month(int m);
     int get_year();
-    void set_year(int y);
     string get_headliner();
-    void set_headliner(string h);
     string get_opener();
-    void set_opener(string o);
-    float get_price();
-    void set_price(float p);
+    float get_cost();
     bool get_purchased();
-    void set_purchased(bool p);
+
 
   protected:
     string venue;
@@ -41,7 +36,7 @@ class Show
     int year;
     string headliner;
     string opener;
-    float price;
+    float cost;
     bool purchased;
 
   private:
