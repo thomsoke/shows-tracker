@@ -15,6 +15,7 @@ Management::Management()
   {
     shows[i] = NULL;
   }
+  show_counter = 0;
 }
 
 /*********************************************************************
@@ -41,7 +42,7 @@ void Management::mgmt_menu()
     cout << endl;
     cout << "-------------------- MENU --------------------" << endl;
     cout << "   1 --- add new show" << endl;
-    cout << "   2 --- soemthing" << endl;
+    cout << "   2 --- append file" << endl;
     cout << "   3 --- something" << endl;
     cout << "   4 --- quit" << endl;
     cout << "----------------------------------------------" << endl;
@@ -57,12 +58,12 @@ void Management::mgmt_menu()
     {
       case 1:
         cout << "add new show" << endl;
-      // add new show
+        add_new_show();
         break;
 
       case 2:
-        cout << "case 2" << endl;
-      // some stuff
+        cout << "append file" << endl;
+        append_file(outFile, shows)
         break;
 
       case 3:
@@ -87,13 +88,57 @@ void Management::mgmt_menu()
 *********************************************************************/
 void Management::add_new_show()
 {
+  int slot = get_available_slot();
+  if (slot != -1)
+  {
+    shows[slot] = new Show;
+    shows[slot]->enter_show_info();
+    show_counter++;
+  }
+  else
+  cout << "no available slots" << endl;
 
 }
 
 
-void Management::append_file()
+
+/*********************************************************************
+*********************************************************************/
+int Management::get_available_slot()
+{
+  for (int i = 0; i < 10; i++)
+  {
+    if (shows[i] == NULL)
+    {
+      return i;
+    }
+  }
+  return -1;
+}
+
+
+
+
+
+
+
+/*********************************************************************
+*********************************************************************/
+void Management::append_file(ofstream &outFile, Show* shows)
 {
   // will write new show to file
   // maybe take shows in, organise in a way, then write organised contents to file???
+  outFile << "---------------------------------------------------" << endl;
+  outFile << "venue: " << shows[i]->get_venue() << endl;
+  outFile << "time: " << shows[i]->get_time() << endl;
+  outFile << "day: " << shows[i]->get_day() << endl;
+  outFile << "year: " << shows[i]->get_year() << endl;
+  outFile << "headliner: " << shows[i]->get_headliner() << endl;
+  outFile << "opener: " << shows[i]->get_opener() << endl;
+  outFile << "cost: " << shows[i]->get_cost() << endl;
+  outFile << "purchased: " << shows[i]->get_purchased() << endl;
+  outFile << "---------------------------------------------------" << endl;
+  outFile << endl;
+
 
 }

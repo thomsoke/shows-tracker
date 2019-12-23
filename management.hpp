@@ -8,6 +8,8 @@
 #define MANAGEMENT_HPP
 
 #include <iostream>
+#include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -24,6 +26,7 @@ class Management
 
   private:
    Show* shows[10];
+   int show_counter;
 
 };
 
