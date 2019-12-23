@@ -11,6 +11,8 @@
 #include <fstream>
 #include <string>
 
+#include "show.hpp"
+
 using namespace std;
 
 class Management
@@ -20,13 +22,15 @@ class Management
     ~Management();
     void mgmt_menu();
     void add_new_show();
-    void append_file();
-
+    void append_file(ofstream &outFile, Show* shows);
+    int get_available_slot();
+    
   protected:
 
   private:
-   Show* shows[10];
-   int show_counter;
+    bool quit;
+    Show* shows[10];
+    int show_counter;
 
 };
 
