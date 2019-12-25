@@ -63,7 +63,7 @@ void Management::mgmt_menu()
 
       case 2:
         cout << "append file" << endl;
-        append_file(outFile, shows);
+        append_file(shows);
         break;
 
       case 3:
@@ -124,23 +124,31 @@ int Management::get_available_slot()
 
 /*********************************************************************
 *********************************************************************/
-void Management::append_file(ofstream &outFile, Show* shows)
+void Management::append_file(Show* shows)
+//void Management::append_file(ofstream &outFile, Show* shows)
 {
+  ofstream outFile("output_shows.txt", ios::app);      // creates file "output_count.txt" if it doesn't already exist
+
+  if (outFile.is_open())
+  {
   // will write new show to file
   // maybe take shows in, organise in a way, then write organised contents to file???
-  for (int i = 0; i < show_counter; i++)
-  {
-    outFile << "---------------------------------------------------" << endl;
-    outFile << "venue: " << shows[i].get_venue() << endl;
-    outFile << "time: " << shows[i].get_time() << endl;
-    outFile << "day: " << shows[i].get_day() << endl;
-    outFile << "year: " << shows[i].get_year() << endl;
-    outFile << "headliner: " << shows[i].get_headliner() << endl;
-    outFile << "opener: " << shows[i].get_opener() << endl;
-    outFile << "cost: " << shows[i].get_cost() << endl;
-    outFile << "purchased: " << shows[i].get_purchased() << endl;
-    outFile << "---------------------------------------------------" << endl;
-    outFile << endl;
-
+    for (int i = 0; i < show_counter; i++)
+    {
+      outFile << "---------------------------------------------------" << endl;
+      outFile << "venue: " << shows[i].get_venue() << endl;
+      outFile << "time: " << shows[i].get_time() << endl;
+      outFile << "day: " << shows[i].get_day() << endl;
+      outFile << "year: " << shows[i].get_year() << endl;
+      outFile << "headliner: " << shows[i].get_headliner() << endl;
+      outFile << "opener: " << shows[i].get_opener() << endl;
+      outFile << "cost: " << shows[i].get_cost() << endl;
+      outFile << "purchased: " << shows[i].get_purchased() << endl;
+      outFile << "---------------------------------------------------" << endl;
+      outFile << endl;
+    }
+  outFile.close();
+  cout << "\n == Output results to text file ==" << endl;
   }
+
 }

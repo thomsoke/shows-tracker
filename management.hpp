@@ -8,6 +8,7 @@
 #define MANAGEMENT_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <string>
 
@@ -22,9 +23,12 @@ class Management
     ~Management();
     void mgmt_menu();
     void add_new_show();
-    void append_file(ofstream &outFile, Show* shows);
+    void append_file(Show* shows);
+
+//    void append_file(ofstream &outFile, Show* shows);
+
     int get_available_slot();
-    
+
   protected:
 
   private:
