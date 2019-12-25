@@ -16,6 +16,7 @@ Show::Show()
 /*********************************************************************
 ** function: parameterized constructor
 *********************************************************************/
+/*
 Show::Show(string v, int t, int d, int m, int y, string h, string o, float c, bool p)
 {
   venue = v;
@@ -29,6 +30,7 @@ Show::Show(string v, int t, int d, int m, int y, string h, string o, float c, bo
   purchased = p;
 
 }
+*/
 
 /*********************************************************************
 ** function: destructor

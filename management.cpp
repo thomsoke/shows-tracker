@@ -63,7 +63,7 @@ void Management::mgmt_menu()
 
       case 2:
         cout << "append file" << endl;
-        append_file(shows);
+        append_file();
         break;
 
       case 3:
@@ -124,7 +124,7 @@ int Management::get_available_slot()
 
 /*********************************************************************
 *********************************************************************/
-void Management::append_file(Show* shows)
+void Management::append_file()
 //void Management::append_file(ofstream &outFile, Show* shows)
 {
   ofstream outFile("output_shows.txt", ios::app);      // creates file "output_count.txt" if it doesn't already exist
@@ -136,14 +136,14 @@ void Management::append_file(Show* shows)
     for (int i = 0; i < show_counter; i++)
     {
       outFile << "---------------------------------------------------" << endl;
-      outFile << "venue: " << shows[i].get_venue() << endl;
-      outFile << "time: " << shows[i].get_time() << endl;
-      outFile << "day: " << shows[i].get_day() << endl;
-      outFile << "year: " << shows[i].get_year() << endl;
-      outFile << "headliner: " << shows[i].get_headliner() << endl;
-      outFile << "opener: " << shows[i].get_opener() << endl;
-      outFile << "cost: " << shows[i].get_cost() << endl;
-      outFile << "purchased: " << shows[i].get_purchased() << endl;
+      outFile << "venue: " << shows[i]->get_venue() << endl;
+      outFile << "time: " << shows[i]->get_time() << endl;
+      outFile << "day: " << shows[i]->get_day() << endl;
+      outFile << "year: " << shows[i]->get_year() << endl;
+      outFile << "headliner: " << shows[i]->get_headliner() << endl;
+      outFile << "opener: " << shows[i]->get_opener() << endl;
+      outFile << "cost: " << shows[i]->get_cost() << endl;
+      outFile << "purchased: " << shows[i]->get_purchased() << endl;
       outFile << "---------------------------------------------------" << endl;
       outFile << endl;
     }
