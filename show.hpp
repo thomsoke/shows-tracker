@@ -8,6 +8,7 @@
 #define SHOW_HPP
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 

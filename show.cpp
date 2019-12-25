@@ -25,6 +25,9 @@ Show::~Show()
 *********************************************************************/
 void Show::enter_show_info()
 {
+  string get_input;
+  int temp;
+
   cout << "enter venue: " << endl;
   getline(cin, venue);
 
@@ -39,6 +42,7 @@ void Show::enter_show_info()
 
   cout << "enter year: " << endl;
   cin >> year;
+  cin.ignore();
 
   cout << "enter headliner: " << endl;
   getline(cin, headliner);
