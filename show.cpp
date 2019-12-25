@@ -46,21 +46,37 @@ Show::~Show()
 void Show::enter_show_info()
 {
   cout << "enter venue: " << endl;
-  cin >> venue;
+//  cin >> venue;
+    getline(cin, venue);
+
   cout << "enter time: " << endl;
   cin >> time;
+
+
   cout << "enter day: " << endl;
   cin >> day;
-  cout << "enter month: " << endl;
+
+
+  cout << "enter month (number): " << endl;
   cin >> month;
+
+
   cout << "enter year: " << endl;
   cin >> year;
+
+
   cout << "enter headliner: " << endl;
   cin >> headliner;
+    getline(cin, headliner);
+
   cout << "enter opener: " << endl;
   cin >> opener;
+    getline(cin, opener);
+
   cout << "enter cost: " << endl;
   cin >> cost;
+
+
   cout << "enter 1 if purchased, 0 if not: " << endl;
   cin >> purchased;
 
