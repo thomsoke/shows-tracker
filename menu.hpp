@@ -15,13 +15,13 @@ using namespace std;
 
 class Menu
 {
-  protected:
-    bool quit;
-
   public:
     Menu();
     ~Menu();
     void display_menu();
+
+  protected:
+    bool quit;
 
 };
 

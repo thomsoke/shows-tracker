@@ -26,8 +26,6 @@ Management::~Management()
 //  delete [] shows;
 }
 
-
-
 /*********************************************************************
 *********************************************************************/
 void Management::mgmt_menu()
@@ -116,16 +114,9 @@ int Management::get_available_slot()
   return -1;
 }
 
-
-
-
-
-
-
 /*********************************************************************
 *********************************************************************/
 void Management::append_file()
-//void Management::append_file(ofstream &outFile, Show* shows)
 {
   ofstream outFile("output_shows.txt", ios::app);      // creates file "output_count.txt" if it doesn't already exist
 

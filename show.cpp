@@ -14,25 +14,6 @@ Show::Show()
 }
 
 /*********************************************************************
-** function: parameterized constructor
-*********************************************************************/
-/*
-Show::Show(string v, int t, int d, int m, int y, string h, string o, float c, bool p)
-{
-  venue = v;
-  time = t;
-  day = d;
-  month = m;
-  year = y;
-  headliner = h;
-  opener = o;
-  cost = c;
-  purchased = p;
-
-}
-*/
-
-/*********************************************************************
 ** function: destructor
 *********************************************************************/
 Show::~Show()
@@ -40,54 +21,38 @@ Show::~Show()
 }
 
 
-
 /*********************************************************************
 *********************************************************************/
 void Show::enter_show_info()
 {
   cout << "enter venue: " << endl;
-//  cin >> venue;
-    getline(cin, venue);
+  getline(cin, venue);
 
   cout << "enter time: " << endl;
   cin >> time;
 
-
   cout << "enter day: " << endl;
   cin >> day;
-
 
   cout << "enter month (number): " << endl;
   cin >> month;
 
-
   cout << "enter year: " << endl;
   cin >> year;
 
-
   cout << "enter headliner: " << endl;
-  cin >> headliner;
-    getline(cin, headliner);
+  getline(cin, headliner);
 
   cout << "enter opener: " << endl;
-  cin >> opener;
-    getline(cin, opener);
+  getline(cin, opener);
 
   cout << "enter cost: " << endl;
   cin >> cost;
 
-
   cout << "enter 1 if purchased, 0 if not: " << endl;
   cin >> purchased;
 
-
-
 }
-
-
-
-
-
 
 
 /*********************************************************************

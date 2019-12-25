@@ -16,9 +16,7 @@ class Show
   public:
     Show();
     ~Show();
-
     void enter_show_info();
-
     string get_venue();
     float get_time();
     int get_day();
@@ -28,9 +26,6 @@ class Show
     string get_opener();
     float get_cost();
     bool get_purchased();
-
-
-
 
   protected:
     string venue;
