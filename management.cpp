@@ -127,7 +127,7 @@ void Management::append_file()
     {
       outFile << "---------------------------------------------------" << endl;
       outFile << "venue: " << shows[i]->get_venue() << endl;
-      outFile << "time: " << shows[i]->get_time() << " pm" << endl;
+      outFile << "time: " << shows[i]->get_time() << pm" << endl;
       outFile << "day: " << shows[i]->get_day() << endl;
       outFile << "month: " << shows[i]->get_month() << endl;
       outFile << "year: " << shows[i]->get_year() << endl;
@@ -174,3 +174,42 @@ void Management::erase_file()
       cout << "quitting erase" << endl;
     }
 }
+
+
+
+
+/*********************************************************************
+*********************************************************************/
+
+//void Management::read_file_contents()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//

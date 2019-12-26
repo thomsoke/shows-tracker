@@ -23,9 +23,10 @@ class Management
     ~Management();
     void mgmt_menu();
     void add_new_show();
+    int get_available_slot();
     void append_file();
     void erase_file();
-    int get_available_slot();
+//    void read_file_contents();
 
   protected:
 

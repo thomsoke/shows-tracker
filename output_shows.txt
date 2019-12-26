@@ -1,0 +1,12 @@
+---------------------------------------------------
+venue: aladdin theater
+time: 5
+day: 3
+month: 8
+year: 2020
+headliner: first band
+opener: other band
+cost: 30
+purchased: 0
+---------------------------------------------------
+
