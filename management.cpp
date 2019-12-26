@@ -41,7 +41,7 @@ void Management::mgmt_menu()
     cout << "-------------------- MENU --------------------" << endl;
     cout << "   1 --- add new show" << endl;
     cout << "   2 --- append file" << endl;
-    cout << "   3 --- something" << endl;
+    cout << "   3 --- erase output file" << endl;
     cout << "   4 --- quit" << endl;
     cout << "----------------------------------------------" << endl;
 
@@ -49,7 +49,7 @@ void Management::mgmt_menu()
     {
       cout << "make selection: " << endl;
       getline(cin, get_input);
-    } while(get_input != "1" && get_input != "2");
+    } while(get_input != "1" && get_input != "2" && get_input != "3" && get_input != "4");
     temp = atoi(get_input.c_str());
 
     switch (temp)
@@ -65,8 +65,8 @@ void Management::mgmt_menu()
         break;
 
       case 3:
-        cout << "case 3" << endl;
-      // some stuff
+        cout << "erase output file contents" << endl;
+        erase_file();
         break;
 
       case 4:
@@ -99,7 +99,6 @@ void Management::add_new_show()
 }
 
 
-
 /*********************************************************************
 *********************************************************************/
 int Management::get_available_slot()
@@ -118,7 +117,7 @@ int Management::get_available_slot()
 *********************************************************************/
 void Management::append_file()
 {
-  ofstream outFile("output_shows.txt", ios::app);      // creates file "output_count.txt" if it doesn't already exist
+  ofstream outFile("output_shows.txt", ios::app);    // creates output file if doesn't exist
 
   if (outFile.is_open())
   {
@@ -140,7 +139,38 @@ void Management::append_file()
       outFile << endl;
     }
   outFile.close();
-  cout << "\n == Output results to text file ==" << endl;
+  cout << "\n == outputting results to text file... ==" << endl;
   }
 
+}
+
+
+/*********************************************************************
+*********************************************************************/
+void Management::erase_file()
+{
+  cout << "are you SURE you want to ERASE CONTENTS?" << endl;
+  cout << "this will completely ERASE ALL shows saved in output file" << endl;
+  cout << "enter yes to proceed" << endl;
+
+  string input;
+  getline(cin, input);
+
+    if (input == "yes")
+    {
+      ofstream outFile("output_shows.txt", ios::trunc);      // creates file "output_count.txt" if it doesn't already exist
+      if (outFile.is_open())
+      {
+        outFile.close();
+        cout << "\n == erasing file contents... ==" << endl;
+      }
+      else
+      {
+        cout << "error - no file opened" << endl;
+      }
+    }
+    else
+    {
+      cout << "quitting erase" << endl;
+    }
 }
