@@ -26,7 +26,6 @@ class Management
     int get_available_slot();
     void append_file();
     void erase_file();
-//    void read_file_contents();
 
   protected:
 
