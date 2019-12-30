@@ -114,7 +114,9 @@ int Management::get_available_slot()
 }
 
 /*********************************************************************
+** this one writes regular ol variable data to txt file
 *********************************************************************/
+/*
 void Management::append_file()
 {
   ofstream outFile("output_shows.txt", ios::app);    // creates output file if doesn't exist
@@ -137,12 +139,50 @@ void Management::append_file()
       outFile << "purchased: " << shows[i]->get_purchased() << endl;
       outFile << "---------------------------------------------------" << endl;
       outFile << endl;
+
     }
   outFile.close();
   cout << "\n == outputting results to text file... ==" << endl;
   }
 
 }
+*/
+
+
+/*********************************************************************
+** this one writes json serialized data to json file
+** well, it should. appears to not do that but uhhhhhh maybe close???
+*********************************************************************/
+void Management::append_file()
+{
+  ofstream outFile("output_shows.json", ios::app);    // creates output file if doesn't exist
+
+  if (outFile.is_open())
+  {
+    for (int i = 0; i < show_counter; i++)
+    {
+
+      outFile << "---------------------------------------------------" << endl;
+      outFile << "venue: " << shows[i]->get_j_venue() << endl;
+      outFile << "time: " << shows[i]->get_time() << "pm" << endl;
+      outFile << "day: " << shows[i]->get_day() << endl;
+      outFile << "month: " << shows[i]->get_month() << endl;
+      outFile << "year: " << shows[i]->get_year() << endl;
+      outFile << "headliner: " << shows[i]->get_headliner() << endl;
+      outFile << "opener: " << shows[i]->get_opener() << endl;
+      outFile << "cost: " << shows[i]->get_cost() << endl;
+      outFile << "purchased: " << shows[i]->get_purchased() << endl;
+      outFile << "---------------------------------------------------" << endl;
+      outFile << endl;
+
+    }
+  outFile.close();
+  cout << "\n == outputting results to JSON file... ==" << endl;
+  }
+
+}
+
+
 
 
 /*********************************************************************

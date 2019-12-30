@@ -1,55 +1,13 @@
-{
-  "show" : [
+"show" :
 
-    {
-      "venue": "TEST venue",
-      "time": 4.4,
-      "day": 4,
-      "month": 4,
-      "year": 4444,
-      "headliner": "TEST headliner",
-      "opener": "TEST opener",
-      "cost": 4.44,
-      "purchased": false
-    },
-
-
-    {
-      "venue": "doug fir lounge",
-      "time": 8.30,
-      "day": 10,
-      "month": 2,
-      "year": 2018,
-      "headliner": "luna",
-      "opener": "i have no clue",
-      "cost": 35.24,
-      "purchased": true
-    },
-
-    {
-      "venue": "bunk bar",
-      "time": 7.30,
-      "day": 4,
-      "month": 1,
-      "year": 2020,
-      "headliner": "steve malkmus",
-      "opener": "bob nastanovitch, others",
-      "cost": 30.00,
-      "purchased": true
-    },
-
-    {
-      "venue": "treefort",
-      "time": 0.0,
-      "day": 25,
-      "month": 3,
-      "year": 2020,
-      "headliner": "japanese breakfast, etc",
-      "opener": "help, etc",
-      "cost": 30.00,
-      "purchased": true
-    },
-
-  ]
-
- }
+  {
+    "venue": "TEST venue",
+    "time": 4.4,
+    "day": 4,
+    "month": 4,
+    "year": 4444,
+    "headliner": "TEST headliner",
+    "opener": "TEST opener",
+    "cost": 4.44,
+    "purchased": false
+  },

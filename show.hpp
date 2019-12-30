@@ -10,6 +10,10 @@
 #include <iostream>
 #include <string>
 
+#include <nlohmann/json.hpp>
+// for convenience
+using json = nlohmann::json;
+
 using namespace std;
 
 class Show
@@ -28,6 +32,17 @@ class Show
     float get_cost();
     bool get_purchased();
 
+    json get_j_venue();
+    json get_j_time();
+    json get_j_day();
+    json get_j_month();
+    json get_j_year();
+    json get_j_headliner();
+    json get_j_opener();
+    json get_j_cost();
+    json get_j_purchased();
+
+
   protected:
     string venue;
     float time;
@@ -38,6 +53,17 @@ class Show
     string opener;
     float cost;
     bool purchased;
+
+
+    json j_venue;
+    json j_time;
+    json j_day;
+    json j_month;
+    json j_year;
+    json j_headliner;
+    json j_opener;
+    json j_cost;
+    json j_purchased;
 
   private:
 
