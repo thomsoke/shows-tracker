@@ -98,7 +98,6 @@ void Management::add_new_show()
 
 }
 
-
 /*********************************************************************
 *********************************************************************/
 int Management::get_available_slot()
@@ -151,7 +150,7 @@ void Management::append_file()
 
 /*********************************************************************
 ** this one writes json serialized data to json file
-** well, it should. appears to not do that but uhhhhhh maybe close???
+** wow omg i think it actually works
 *********************************************************************/
 void Management::append_file()
 {
@@ -161,20 +160,18 @@ void Management::append_file()
   {
     for (int i = 0; i < show_counter; i++)
     {
-
-      outFile << "---------------------------------------------------" << endl;
-      outFile << "venue: " << shows[i]->get_j_venue() << endl;
-      outFile << "time: " << shows[i]->get_time() << "pm" << endl;
-      outFile << "day: " << shows[i]->get_day() << endl;
-      outFile << "month: " << shows[i]->get_month() << endl;
-      outFile << "year: " << shows[i]->get_year() << endl;
-      outFile << "headliner: " << shows[i]->get_headliner() << endl;
-      outFile << "opener: " << shows[i]->get_opener() << endl;
-      outFile << "cost: " << shows[i]->get_cost() << endl;
-      outFile << "purchased: " << shows[i]->get_purchased() << endl;
-      outFile << "---------------------------------------------------" << endl;
-      outFile << endl;
-
+      json j = {
+        {"venue", shows[i]->get_venue()},
+        {"time", shows[i]->get_time()},
+        {"day", shows[i]->get_day()},
+        {"month", shows[i]->get_month()},
+        {"year", shows[i]->get_year()},
+        {"headliner", shows[i]->get_headliner()},
+        {"opener", shows[i]->get_opener()},
+        {"cost", shows[i]->get_cost()},
+        {"purchased", shows[i]->get_purchased()}
+      };
+      outFile << setw(2) << j << endl;
     }
   outFile.close();
   cout << "\n == outputting results to JSON file... ==" << endl;
@@ -184,9 +181,10 @@ void Management::append_file()
 
 
 
-
 /*********************************************************************
+** erase function for text file
 *********************************************************************/
+/*
 void Management::erase_file()
 {
   cout << "are you SURE you want to ERASE CONTENTS?" << endl;
@@ -202,7 +200,7 @@ void Management::erase_file()
       if (outFile.is_open())
       {
         outFile.close();
-        cout << "\n == erasing file contents... ==" << endl;
+        cout << "\n == erasing TEXT file contents... ==" << endl;
       }
       else
       {
@@ -213,4 +211,45 @@ void Management::erase_file()
     {
       cout << "quitting erase" << endl;
     }
+}
+*/
+
+/*********************************************************************
+** erase function for json file
+*********************************************************************/
+void Management::erase_file()
+{
+  cout << "are you SURE you want to ERASE CONTENTS?" << endl;
+  cout << "this will completely ERASE ALL shows saved in output file" << endl;
+  cout << "enter yes to proceed" << endl;
+
+  string input;
+  getline(cin, input);
+
+    if (input == "yes")
+    {
+      ofstream outFile("output_shows.json", ios::trunc);      // creates file "output_count.txt" if it doesn't already exist
+      if (outFile.is_open())
+      {
+        outFile.close();
+        cout << "\n == erasing JSON file contents... ==" << endl;
+      }
+      else
+      {
+        cout << "error - no file opened" << endl;
+      }
+    }
+    else
+    {
+      cout << "quitting erase" << endl;
+    }
+
+// to clear out shows array so it doesn't re-print.....? current seg fault
+    for (int i = 0; i < show_counter; i++)
+    {
+      shows[i] = NULL;
+      show_counter--;
+    }
+
+
 }
