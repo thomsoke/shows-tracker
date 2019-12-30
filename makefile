@@ -1,17 +1,23 @@
-shows: main.o menu.o management.o show.o
-	g++ main.o menu.o management.o show.o -o shows
+CC = g++ -std=c++11
+exe_file = shows-tracker
 
+$(exe_file): main.o menu.o management.o show.o
+
+	$(CC) main.o menu.o management.o show.o -o $(exe_file)
 main.o: main.cpp
-	g++ -c main.cpp
+	$(CC) -c main.cpp
 
 menu.o: menu.cpp
-	g++ -c menu.cpp
+	$(CC) -c menu.cpp
 
 management.o: management.cpp
-	g++ -c management.cpp
+	$(CC) -c management.cpp
 
 show.o: show.cpp
-	g++ -c show.cpp
+	$(CC) -c show.cpp
 
 clean:
-	rm *.o shows
+	rm -f *.out *o $(exe_file)
+
+cleanish:
+	rm -f *o

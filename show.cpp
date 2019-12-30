@@ -22,6 +22,9 @@ Show::~Show()
 
 
 /*********************************************************************
+** trying to figure out way to serialize object data members
+** write to json file
+** this may not be it...
 *********************************************************************/
 void Show::enter_show_info()
 {
@@ -55,6 +58,7 @@ void Show::enter_show_info()
 
   cout << "enter 1 if purchased, 0 if not: " << endl;
   cin >> purchased;
+
 
 }
 

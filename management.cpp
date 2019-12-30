@@ -98,7 +98,6 @@ void Management::add_new_show()
 
 }
 
-
 /*********************************************************************
 *********************************************************************/
 int Management::get_available_slot()
@@ -114,7 +113,9 @@ int Management::get_available_slot()
 }
 
 /*********************************************************************
+** this one writes regular ol variable data to txt file
 *********************************************************************/
+/*
 void Management::append_file()
 {
   ofstream outFile("output_shows.txt", ios::app);    // creates output file if doesn't exist
@@ -137,16 +138,53 @@ void Management::append_file()
       outFile << "purchased: " << shows[i]->get_purchased() << endl;
       outFile << "---------------------------------------------------" << endl;
       outFile << endl;
+
     }
   outFile.close();
   cout << "\n == outputting results to text file... ==" << endl;
   }
 
 }
+*/
 
 
 /*********************************************************************
+** this one writes json serialized data to json file
+** wow omg i think it actually works
 *********************************************************************/
+void Management::append_file()
+{
+  ofstream outFile("output_shows.json", ios::app);    // creates output file if doesn't exist
+
+  if (outFile.is_open())
+  {
+    for (int i = 0; i < show_counter; i++)
+    {
+      json j = {
+        {"venue", shows[i]->get_venue()},
+        {"time", shows[i]->get_time()},
+        {"day", shows[i]->get_day()},
+        {"month", shows[i]->get_month()},
+        {"year", shows[i]->get_year()},
+        {"headliner", shows[i]->get_headliner()},
+        {"opener", shows[i]->get_opener()},
+        {"cost", shows[i]->get_cost()},
+        {"purchased", shows[i]->get_purchased()}
+      };
+      outFile << setw(2) << j << endl;
+    }
+  outFile.close();
+  cout << "\n == outputting results to JSON file... ==" << endl;
+  }
+
+}
+
+
+
+/*********************************************************************
+** erase function for text file
+*********************************************************************/
+/*
 void Management::erase_file()
 {
   cout << "are you SURE you want to ERASE CONTENTS?" << endl;
@@ -162,7 +200,7 @@ void Management::erase_file()
       if (outFile.is_open())
       {
         outFile.close();
-        cout << "\n == erasing file contents... ==" << endl;
+        cout << "\n == erasing TEXT file contents... ==" << endl;
       }
       else
       {
@@ -173,4 +211,45 @@ void Management::erase_file()
     {
       cout << "quitting erase" << endl;
     }
+}
+*/
+
+/*********************************************************************
+** erase function for json file
+*********************************************************************/
+void Management::erase_file()
+{
+  cout << "are you SURE you want to ERASE CONTENTS?" << endl;
+  cout << "this will completely ERASE ALL shows saved in output file" << endl;
+  cout << "enter yes to proceed" << endl;
+
+  string input;
+  getline(cin, input);
+
+    if (input == "yes")
+    {
+      ofstream outFile("output_shows.json", ios::trunc);      // creates file "output_count.txt" if it doesn't already exist
+      if (outFile.is_open())
+      {
+        outFile.close();
+        cout << "\n == erasing JSON file contents... ==" << endl;
+      }
+      else
+      {
+        cout << "error - no file opened" << endl;
+      }
+    }
+    else
+    {
+      cout << "quitting erase" << endl;
+    }
+
+// to clear out shows array so it doesn't re-print.....? current seg fault
+    for (int i = 0; i < show_counter; i++)
+    {
+      shows[i] = NULL;
+      show_counter--;
+    }
+
+
 }

@@ -55,7 +55,6 @@ void Menu::display_menu()
     {
       case 1:
         cout << "entering management system" << endl;
-        // shows mgmt stuff menu -> display
         mgmt.mgmt_menu();
         break;
 
