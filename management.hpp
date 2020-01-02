@@ -11,15 +11,11 @@
 #include <iomanip>
 #include <fstream>
 #include <string>
+#include <nlohmann/json.hpp>    // source: https://github.com/nlohmann/json
 
 #include "show.hpp"
 
-
-#include <nlohmann/json.hpp>
-// for convenience
 using json = nlohmann::json;
-
-
 using namespace std;
 
 class Management
@@ -32,8 +28,6 @@ class Management
     int get_available_slot();
     void append_file();
     void erase_file();
-
-  protected:
 
   private:
     bool quit;

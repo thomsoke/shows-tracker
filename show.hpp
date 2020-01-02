@@ -9,11 +9,11 @@
 
 #include <iostream>
 #include <string>
+#include <nlohmann/json.hpp>    // source: https://github.com/nlohmann/json
 
-#include <nlohmann/json.hpp>
-// for convenience
+#include "show.hpp"
+
 using json = nlohmann::json;
-
 using namespace std;
 
 class Show
@@ -42,8 +42,6 @@ class Show
     string opener;
     float cost;
     bool purchased;
-
-  private:
 
 };
 

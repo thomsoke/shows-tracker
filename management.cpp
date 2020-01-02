@@ -23,7 +23,7 @@ Management::Management()
 *********************************************************************/
 Management::~Management()
 {
-//  delete [] shows;
+//  delete [] shows;        // need to properly free memory
 }
 
 /*********************************************************************
@@ -113,42 +113,6 @@ int Management::get_available_slot()
 }
 
 /*********************************************************************
-** this one writes regular ol variable data to txt file
-*********************************************************************/
-/*
-void Management::append_file()
-{
-  ofstream outFile("output_shows.txt", ios::app);    // creates output file if doesn't exist
-
-  if (outFile.is_open())
-  {
-  // will write new show to file
-  // maybe take shows in, organise in a way, then write organised contents to file???
-    for (int i = 0; i < show_counter; i++)
-    {
-      outFile << "---------------------------------------------------" << endl;
-      outFile << "venue: " << shows[i]->get_venue() << endl;
-      outFile << "time: " << shows[i]->get_time() << "pm" << endl;
-      outFile << "day: " << shows[i]->get_day() << endl;
-      outFile << "month: " << shows[i]->get_month() << endl;
-      outFile << "year: " << shows[i]->get_year() << endl;
-      outFile << "headliner: " << shows[i]->get_headliner() << endl;
-      outFile << "opener: " << shows[i]->get_opener() << endl;
-      outFile << "cost: " << shows[i]->get_cost() << endl;
-      outFile << "purchased: " << shows[i]->get_purchased() << endl;
-      outFile << "---------------------------------------------------" << endl;
-      outFile << endl;
-
-    }
-  outFile.close();
-  cout << "\n == outputting results to text file... ==" << endl;
-  }
-
-}
-*/
-
-
-/*********************************************************************
 ** this one writes json serialized data to json file
 ** wow omg i think it actually works
 *********************************************************************/
@@ -176,43 +140,7 @@ void Management::append_file()
   outFile.close();
   cout << "\n == outputting results to JSON file... ==" << endl;
   }
-
 }
-
-
-
-/*********************************************************************
-** erase function for text file
-*********************************************************************/
-/*
-void Management::erase_file()
-{
-  cout << "are you SURE you want to ERASE CONTENTS?" << endl;
-  cout << "this will completely ERASE ALL shows saved in output file" << endl;
-  cout << "enter yes to proceed" << endl;
-
-  string input;
-  getline(cin, input);
-
-    if (input == "yes")
-    {
-      ofstream outFile("output_shows.txt", ios::trunc);      // creates file "output_count.txt" if it doesn't already exist
-      if (outFile.is_open())
-      {
-        outFile.close();
-        cout << "\n == erasing TEXT file contents... ==" << endl;
-      }
-      else
-      {
-        cout << "error - no file opened" << endl;
-      }
-    }
-    else
-    {
-      cout << "quitting erase" << endl;
-    }
-}
-*/
 
 /*********************************************************************
 ** erase function for json file
@@ -250,6 +178,4 @@ void Management::erase_file()
       shows[i] = NULL;
       show_counter--;
     }
-
-
 }
