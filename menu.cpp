@@ -41,7 +41,7 @@ void Menu::display_menu()
     cout << endl;
     cout << "-------------------- MENU --------------------" << endl;
     cout << "   1 --- manage shows" << endl;
-    cout << "   2 --- quit" << endl;
+    cout << "   2 --- quit program" << endl;
     cout << "----------------------------------------------" << endl;
 
     do

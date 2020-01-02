@@ -23,7 +23,7 @@ Management::Management()
 *********************************************************************/
 Management::~Management()
 {
-//  delete [] shows;        // need mem mgmt, but this aint it (no NEW)
+//  delete [] shows;        // need mem mgmt, but this aint it (no NEW this scope)
 }
 
 /*********************************************************************
@@ -42,16 +42,15 @@ void Management::mgmt_menu()
     cout << "   1 --- add new show" << endl;
     cout << "   2 --- append added shows to file" << endl;
     cout << "   3 --- erase output file" << endl;
-    cout << "   4 --- quit" << endl;
-//    cout << "   ? --- clear shows array" << endl;   // implement clear out array to stop repeat show writing
-//    cout << "   ? --- sort by..." << endl;          // sorting methods (start with alph by headliner && chron by day/month/yr)
+  //    cout << "   ? --- sort by..." << endl;  // sorting methods (start with alph by headliner && chron by day/month/yr)
+    cout << "   4 --- exit to main menu" << endl;
     cout << "----------------------------------------------" << endl;
 
+    cout << "make selection: " << endl;
     do
     {
-      cout << "make selection: " << endl;
       getline(cin, get_input);
-    } while(get_input != "1" && get_input != "2" && get_input != "3" && get_input != "4");
+    } while(get_input != "1" && get_input != "2" && get_input != "3" && get_input != "4");    // need better error handling
     temp = atoi(get_input.c_str());
 
     switch (temp)
@@ -73,7 +72,7 @@ void Management::mgmt_menu()
 
       case 4:
         quit = true;
-        cout << "quitting" << endl;
+        cout << "exiting" << endl;
         break;
 
       default:
@@ -142,6 +141,7 @@ void Management::append_file()
   outFile.close();
   cout << "\n == outputting results to JSON file... ==" << endl;
   }
+  clear_array();    // clears written content from array
 }
 
 /*********************************************************************
@@ -173,11 +173,20 @@ void Management::erase_file()
     {
       cout << "quitting erase" << endl;
     }
+}
 
-// to clear out shows array so it doesn't re-print.....? current seg fault
-    for (int i = 0; i < show_counter; i++)
+/*********************************************************************
+** clear array contents to prevent double writing of shows
+** called in append_file()
+*********************************************************************/
+void Management::clear_array()
+{
+  for (int i = 0; i < show_counter; i++)
+  {
+    if (shows[i] != NULL)
     {
       shows[i] = NULL;
-      show_counter--;
     }
+  }
+  show_counter = 0;   // reset
 }

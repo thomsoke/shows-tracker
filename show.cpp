@@ -27,6 +27,9 @@ void Show::enter_show_info()
 {
   string get_input;
   int temp;
+  
+// need better error handling....
+// might want to show value to user and have them confirm entry before setting value
 
   cout << "enter venue: " << endl;
   getline(cin, venue);

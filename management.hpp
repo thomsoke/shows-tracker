@@ -28,6 +28,7 @@ class Management
     int get_available_slot();
     void append_file();
     void erase_file();
+    void clear_array();
 
   private:
     bool quit;
